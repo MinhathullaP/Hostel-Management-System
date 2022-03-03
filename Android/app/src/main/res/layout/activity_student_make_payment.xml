@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/hh1"
+    tools:context=".student_make_payment">
+
+    <EditText
+        android:id="@+id/et1"
+        android:background="@drawable/layout_bg"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:textColor="#000"
+        android:textColorHint="#000"
+        android:paddingLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Holdername"
+        android:gravity="center"
+
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="77dp" />
+
+    <EditText
+        android:id="@+id/etacc"
+        android:background="@drawable/layout_bg"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:textColor="#000"
+        android:textColorHint="#000"
+        android:paddingLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="Account Number"
+        android:gravity="center"
+
+        tools:layout_editor_absoluteX="56dp"
+        tools:layout_editor_absoluteY="138dp" />
+
+    <EditText
+        android:id="@+id/et2"
+        android:background="@drawable/layout_bg"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:textColor="#000"
+        android:textColorHint="#000"
+        android:paddingLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="cvv"
+        android:gravity="center"
+
+        tools:layout_editor_absoluteX="56dp"
+        tools:layout_editor_absoluteY="138dp" />
+
+    <EditText
+        android:id="@+id/et3"
+        android:background="@drawable/layout_bg"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:textColor="#000"
+        android:textColorHint="#000"
+        android:paddingLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="exp date"
+        android:gravity="center"
+
+        tools:layout_editor_absoluteX="64dp"
+        tools:layout_editor_absoluteY="201dp" />
+    <EditText
+        android:id="@+id/et4"
+        android:background="@drawable/layout_bg"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:textColor="#000"
+        android:textColorHint="#000"
+        android:paddingLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="amount"
+        android:gravity="center"
+
+        tools:layout_editor_absoluteX="71dp"
+        tools:layout_editor_absoluteY="388dp" />
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn1"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/button_bg"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:text="PAY"
+        android:gravity="center"
+        tools:layout_editor_absoluteX="139dp"
+        tools:layout_editor_absoluteY="691dp" />
+
+</LinearLayout>

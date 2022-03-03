@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/hh1"
+    tools:context=".student_home">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Student Home"
+        android:gravity="center"
+        android:textColor="#000"
+        android:textStyle="bold"
+        android:textSize="30dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn1"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/button_bg"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:text="Bill"
+        tools:layout_editor_absoluteX="125dp"
+        tools:layout_editor_absoluteY="277dp" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn2"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/button_bg"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:text="Apply leave"
+        tools:layout_editor_absoluteX="125dp"
+        tools:layout_editor_absoluteY="277dp" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn3"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/button_bg"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:text="View Requests"
+        tools:layout_editor_absoluteX="125dp"
+        tools:layout_editor_absoluteY="277dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btchange"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/button_bg"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:text="Change Password"
+        tools:layout_editor_absoluteX="125dp"
+        tools:layout_editor_absoluteY="277dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn4"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/button_bg"
+        android:layout_width="225dp"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:text="Logout"
+        tools:layout_editor_absoluteX="125dp"
+        tools:layout_editor_absoluteY="277dp" />
+</LinearLayout>
