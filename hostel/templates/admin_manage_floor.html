@@ -1,0 +1,65 @@
+{% include 'admin_header.html' %}
+<center>
+	<div class="container-fluid" style="background-image: url(/static/img/flr.jpg); height: 500px;background-repeat: no-repeat;background-size: cover;background-position: center;">
+
+	
+	{% if data['floor_up'] %}
+		<form method="post">
+            <h1 style="padding-top: 2em;color: #fff;">Update Floor</h1>
+		<table class="table"  style="width: 500px;height: 300PX;color: #fff;">
+			<tr>
+				<th>Floor Name</th>
+				<td><input type="text" name="floorname" class="form-control" value="{{data['floor_up'][0]['floor_name']}}"></td>
+			</tr>
+			<tr>
+				<th>Floor Type</th>
+				<td><input type="text" name="floortype" class="form-control" value="{{data['floor_up'][0]['floor_type']}}"></td>	
+			</tr>
+			
+			<tr>
+				<td align="center" colspan="2"><input type="submit" name="ufloor" value="Update" class="btn btn-primary"></td>
+			</tr>
+		</table>
+	</form>
+	{% else %}
+	<form method="post">
+        <h1 style="padding-top: 2em;color: #fff;">Manage Floor</h1>
+		<table class="table"  style="width: 500px;height: 300PX;color: #fff;">
+			<tr>
+				<th>Floor Name</th>
+				<td><input type="text" name="floorname" class="form-control"></td>
+			</tr>
+			<tr>
+				<th>Floor Type</th>
+				<td><input type="text" name="floortype"  class="form-control"></td>	
+			</tr>
+		
+			
+			<tr>
+				<td align="center" colspan="2"><input type="submit" name="submit" value="Add" class="btn btn-primary"></td>
+			</tr>
+		</table>
+	</form>
+	{% endif %}
+
+</div>
+    <h1>Floor Details</h1>
+	<table class="table"  style="width: 900px;color: #000;">
+		<tr>
+			<th>Floor Name</th>
+			<th>Floor Type</th>
+			
+		</tr>
+		{% for row in data['floor'] %}
+		<tr>
+			<td>{{ row['floor_name'] }}</td>
+			<td>{{ row['floor_type'] }}</td>
+			
+			<td><a href="?action=update&fid={{ row['floor_id'] }}" class="btn btn-warning btn-sm">Update</a></td>
+			<td><a href="?action=delete&fid={{ row['floor_id'] }}" class="btn btn-danger btn-sm">Delete</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+</center>
+</div>
+{% include 'footer.html' %}

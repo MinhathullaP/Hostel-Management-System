@@ -1,0 +1,112 @@
+{% include 'admin_header.html' %}
+<center>
+	<div class="container-fluid" style="background-image: url(/static/img/h1.jpg); height: 800px;background-repeat: no-repeat;background-size: cover;background-position: center;">
+
+	{% if data['room_up'] %}
+		<form method="post">
+			<h1  style="padding-top: 2em;color: #fff;">Update Rooms</h1>
+		<table class="table"  style="width: 500px;height: 300PX;color: #fff;">
+
+			<tr>
+				<th>Floor</th>
+				<td><input type="text" name="floor_id" class="form-control" readonly value="{{data['room_up'][0]['floor_name']}} : {{data['room_up'][0]['floor_type']}}"></td>
+			</tr>
+			<tr>
+				<th>Room number</th>
+				<td><input type="text" name="roomnumber" class="form-control" value="{{data['room_up'][0]['room_number']}}"></td>
+			</tr>
+			<tr>
+				<th>Room Rent</th>
+				<td><input type="text" name="roomrent" class="form-control" value="{{data['room_up'][0]['room_rent']}}"></td>	
+			</tr>
+
+			<tr>
+				<th>No Of Persons</th>
+				<td><input type="text" name="nopersons" class="form-control" value="{{data['room_up'][0]['no_persons']}}"></td>
+			</tr>
+			<tr>
+				<th>Mess Rent</th>
+				<td><input type="text" name="messrent" class="form-control" value="{{data['room_up'][0]['mess_rent']}}"></td>	
+			</tr>
+			<tr>
+				<th>Details</th>
+				<td><input type="text" name="details" class="form-control" value="{{data['room_up'][0]['details']}}"></td>	
+			</tr>
+			
+			<tr>
+				<td align="center" colspan="2"><input type="submit" name="usubmit" value="Update" class="btn btn-primary"></td>
+			</tr>
+		</table>
+	</form>
+	{% else %}
+	<h1  style="padding-top: 2em;color: #fff;">Manage Rooms</h1>
+	<form method="post">
+		<table class="table"  style="width: 500px;height: 300PX;color: #fff;">
+			<tr>
+				<th>Floor </th>
+				<td><select name="floor_id" id="" class="form-control" style="height: 45px !important;">
+					{% for row in data['floor'] %}
+					<option value="{{ row['floor_id'] }}">{{ row['floor_name'] }} : {{ row['floor_type'] }}</option>
+					{% endfor %}
+				</select></td>
+			</tr>
+			<tr>
+				<tr>
+				<th>Room number</th>
+				<td><input type="text" name="roomnumber" required pattern="[0-9]{3}" class="form-control"></td>
+			</tr>
+			<tr>
+				<th>Room Rent</th>
+				<td><input type="text" name="roomrent"  required pattern="[0-9]{4}" class="form-control"></td>	
+			</tr>
+			<tr>
+				<th>No Of Persons</th>
+				<td><input type="text" name="nopersons" required pattern="[0-9]" class="form-control"></td>
+			</tr>
+			<tr>
+				<th>Mess Rent</th>
+				<td><input type="text" name="messrent" required pattern="[0-9]{4}" class="form-control"></td>	
+			</tr>
+			<tr>
+				<th>Details</th>
+				<td><input type="text" name="details" class="form-control"></td>	
+			</tr>
+			
+			<tr>
+				<td align="center" colspan="2"><input type="submit" name="submit" value="Add" class="btn btn-primary"></td>
+			</tr>
+		</table>
+	</form>
+	{% endif %}
+
+	
+</div>
+<h1>Room Details</h1>
+<table class="table"  style="width: 1100px;color: #000;">
+		<tr>
+			<th>Floor Name</th>
+			<th>Floor Type</th>
+			<th>Room Number</th>
+			<th>Room rent</th>
+			<th>Mess rent</th>
+			<th>Details</th>
+			
+		</tr>
+		{% for row in data['room'] %}
+		<tr>
+			<td>{{ row['floor_name'] }} </td>
+			<td>{{ row['floor_type'] }}</td>
+			<td>{{ row['room_number'] }}</td>
+			<td>{{ row['room_rent'] }}</td>
+			<td>{{ row['mess_rent'] }}</td>
+			<td>{{ row['details'] }}</td>
+			
+			<td><a href="?action=update&rid={{ row['room_id'] }}" class="btn btn-warning btn-sm">Edit</a></td>
+			<td><a href="?action=delete&rid={{ row['room_id'] }}" class="btn btn-danger btn-sm">Delete</a></td>
+			<td><a href="admin_view_vaccancy?rid={{ row['room_id'] }}&no={{row['no_persons']}}">View Vaccancy</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+</center>
+</div>
+{% include 'footer.html' %}

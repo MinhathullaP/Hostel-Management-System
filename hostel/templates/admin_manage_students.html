@@ -1,0 +1,165 @@
+{% include 'admin_header.html' %}
+<center>
+	<div class="container-fluid" style="background-image: url(/static/img/h1.jpg); height: 1100px;background-repeat: no-repeat;background-size: cover;background-position: center;">
+
+
+
+
+	{% if data['s_up'] %}
+		<form method="post">
+		<table class="table"  style="width: 700px;height: 300PX;">
+			<tr>
+				<th>Room number</th>
+				<td><select name="roomnumber" value="{{data['s_up'][0]['room_number']}}"  class="form-control" style="height: 45px !important;">
+					{% for row in data['room'] %}
+						<option value="{{ row['room_id'] }}">{{ row['room_number'] }}</option>
+					{% endfor %}	
+				</select></td>
+			</tr>
+			<tr>
+				<td>First Name</td>
+				<td><input type="text" name="firstname" value="{{data['s_up'][0]['firstname']}}"></td>
+			</tr>
+			
+			<tr>
+				<td>Last Name</td>
+				<td><input type="text" name="lastname" value="{{data['s_up'][0]['lastname']}}"></td>	
+			</tr>
+			<tr>
+				<th>Gender</th>
+				<td><input type="radio" name="gender" value="male">Male
+					<input type="radio" name="gender" value="female">Female
+				</td>
+			</tr>
+			<tr>
+				<td>Phone</td>
+				<td><input type="text" name="phone" value="{{data['s_up'][0]['phone']}}"></td>	
+			</tr>
+			<tr>
+				<td>Email</td>
+				<td><input type="text" name="email" value="{{data['s_up'][0]['email']}}"></td>	
+			</tr>
+			<tr>
+				<td>Place</td>
+				<td><input type="text" name="place" value="{{data['s_up'][0]['place']}}"></td>	
+			</tr>
+			<tr>
+				<td>District</td>
+				<td><input type="text" name="district" value="{{data['s_up'][0]['district']}}"></td>	
+			</tr>
+			<tr>
+				<td>Adhar no</td>
+				<td><input type="text" name="adhar" value="{{data['s_up'][0]['adhar_no']}}"></td>	
+			</tr>
+				
+			<tr>
+				<td align="center" colspan="2"><input type="submit" name="submit" value="Update" class="btn btn-primary"></td>
+			</tr>
+		</table>
+	</form>
+	{% else %}
+	
+	<form method="post">
+		<h1  style="padding-top: 2em;color: #fff;">STUDENT</h1>
+		<table class="table"  style="width: 500px;height: 300PX;color: #fff;">
+
+			<tr>
+				<th>Floor  </th>
+				<th>{% if data['room'] %} {{ data['room'][0]['floor_name'] }} {% endif %}</th>
+			</tr>
+			<tr>
+				<th>Room number</th>
+				<td><select name="roomnumber" class="form-control"  class="form-control" style="height: 45px !important;">
+					{% for row in data['room'] %}
+						<option value="{{ row['room_id'] }}">{{ row['room_number'] }}</option>
+					{% endfor %}	
+				</select></td>
+			</tr>
+			<tr>
+				<tr>
+				<td>First Name</td>
+				<td><input type="text" name="firstname"  required pattern="[A-Za-z]+$" class="form-control"></td>
+			</tr>
+			
+			<tr>
+				<td>Last Name</td>
+				<td><input type="text" name="lastname" pattern="[A-Za-z]+$" class="form-control"></td>	
+			</tr>
+			<tr>
+				<th>Gender</th>
+				<td><input type="radio" name="gender" value="male">Male
+					<input type="radio" name="gender" value="female">Female
+				</td>
+			</tr>
+			<tr>
+				<td>Phone</td>
+				<td><input type="text" name="" value="91" readonly style="width: 30px"><input type="text" name="phone" pattern="[6-9]{1}[0-9]{9}" style="width: 180px" required></td>
+			</tr>
+			<tr>
+				<td>Email</td>
+				<td><input type="email" name="email"  required class="form-control"></td>	
+			</tr>
+			<tr>
+				<td>Place</td>
+				<td><input type="text" name="place" required pattern="[A-Za-z]+$" class="form-control"></td>	
+			</tr>
+			<tr>
+				<td>District</td>
+				<td><input type="text" name="district" required pattern="[A-Za-z]+$" class="form-control"></td>	
+			</tr>
+			<tr>
+				<td>Adhar no</td>
+				<td><input type="text" name="adhar" minlength="16" required class="form-control"></td>	
+			</tr>
+			<tr>
+				<td>Username</td>
+				<td><input type="text" name="username" minlength="3" required class="form-control"></td>	
+			</tr>
+			<tr>
+				<td>Password</td>
+				<td><input type="password" name="password" minlength="8" required placeholder="Atleast 8 character" class="form-control"></td>	
+			</tr>
+				
+			<tr>
+				<td align="center" colspan="2"><input type="submit" name="submit" value="Add" class="btn btn-primary"></td>
+			</tr>
+		</table>
+	</form>
+	{% endif %}
+
+	</div>
+	<div style="overflow: scroll;height: 200px">
+	<table class="table"  style="width: 700px; height: 50px;">
+		<tr>
+			<th>Room Number</th>
+			<th>First name</th>
+			<th>Last name</th>
+			<th>Gender</th>
+			<th>Phone</th>
+			<th>Email</th>
+			<th>Place</th>
+			<th>District</th>
+			<th>Adhar no</th>
+			
+		</tr>
+		{% for row in data['student'] %}
+		<tr>
+			<td>{{ row['room_number'] }}</td>
+			<td>{{ row['firstname'] }}</td>
+			<td>{{ row['lastname'] }}</td>
+			<td>{{ row['gender'] }}</td>
+			<td>{{ row['phone'] }}</td>
+			<td>{{ row['email'] }}</td>
+			<td>{{ row['place'] }}</td>
+			<td>{{ row['district'] }}</td>
+			<td>{{ row['adhar_no'] }}</td>
+			<td><a href="?action=update&sid={{ row['student_id'] }}" class="btn btn-warning btn-sm">Update</a></td>
+			<td><a href="?action=delete&sid={{ row['student_id'] }}" class="btn btn-danger btn-sm">Delete</a></td>
+			<td><a href="admin_add_bill?action=bill&sid={{ row['student_id'] }}&room_rent={{ row['room_rent'] }}&mess_rent={{ row['mess_rent'] }}" class="btn btn-primary btn-sm">Add Bill</a></td>
+			<td><a href="admin_view_bill?action=bill&sid={{ row['student_id'] }}&firstname={{ row['firstname'] }}&lastname={{ row['lastname'] }}" class="btn btn-success btn-sm">View Bill</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+</center>
+</div>
+{% include 'footer.html' %}

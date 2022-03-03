@@ -1,0 +1,32 @@
+{% include 'admin_header.html' %}
+<div class="container-fluid" style="background-image: url(/static/img/h1.jpg); height: 200px;background-repeat: no-repeat;background-size: cover;background-position: center;">
+
+
+	</div>
+<center>
+	<h1>Leave Request</h1>
+	<table class="table"  style="width: 700px;color : #000;">
+		<tr>
+			<th>student name</th>
+			<th>Leave date</th>
+			<th>Reason</th>
+			<th>Date</th>
+			<th>Status</th>
+		</tr>
+		{% for row in data['request'] %}
+		<tr>
+			<td>{{ row['firstname'] }} {{ row['lastname'] }}</td>
+			<td>{{ row['leavedate'] }}</td>
+			<td>{{ row['reason'] }}</td>
+			<td>{{ row['date'] }}</td>
+			<td>{{ row['status'] }}</td>
+			{% if row['status']=="pending" %}
+				<td><a href="?action=accept&rid={{row['request_id']}}" class="btn btn-success btn-sm">Accept</a></td>
+				<td><a href="?action=reject&rid={{row['request_id']}}" class="btn btn-danger btn-sm">Reject</a></td>
+			{% endif %}	
+		</tr>
+		{% endfor %}
+	</table>
+</center>
+</div>
+{% include 'footer.html' %}

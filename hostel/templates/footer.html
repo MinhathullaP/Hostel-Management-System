@@ -1,0 +1,38 @@
+<footer class="row" style="background-color: darkslategrey;color: #fff;">
+        <div class="col-xl-12">
+          <p class="text-center p-4">Copyright &copy; <span class="tm-current-year">2018</span> Sree Narayana Gurukulam College Of Engineering
+          
+          - Design:  <a rel="nofollow" href="#" class="tm-text-gray" style="color: #fff;">Minhathulla</a></p>
+        </div>
+      </footer>
+    </div> <!-- .container -->
+
+  </div> <!-- .main -->
+
+  <!-- load JS -->
+  <script src="/static/js/jquery-3.2.1.slim.min.js"></script> <!-- https://jquery.com/ -->
+  <script>
+
+    /* DOM is ready
+    ------------------------------------------------*/
+    $(function () {
+
+      if (renderPage) {
+        $('body').addClass('loaded');
+      }
+
+      $('.tm-current-year').text(new Date().getFullYear());  // Update year in copyright
+    });
+
+  </script>
+</body>
+</html>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+
+    {% for message in messages %}
+    <script>alert("{{ message }}")</script>
+    {% endfor %}
+
+    {% endif %}
+{% endwith %}

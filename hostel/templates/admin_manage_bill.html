@@ -1,0 +1,71 @@
+{% include 'admin_header.html' %}
+
+
+<script type="text/javascript">
+function textChange(){
+    var a=document.getElementById("nol").value;
+    var b=document.getElementById("nod").value;
+	var r=document.getElementById("room_rent").value;
+	var m=document.getElementById("mess_rent").value;
+	var tot_days=30
+	var per_rent=parseFloat(r)/parseFloat(tot_days)
+	
+	var per_mess=parseFloat(m)/parseFloat(tot_days)
+
+	var tot_rent=parseFloat(per_rent)*parseFloat(b)
+	var tot_mess=parseFloat(per_mess)*parseFloat(b)
+
+	document.getElementById("proom_rent").value = tot_rent;
+	document.getElementById("pmess_rent").value = tot_mess;
+
+	
+    var tot=parseFloat(tot_mess)+parseFloat(tot_rent)
+    document.getElementById("amt").value=tot;
+
+  }
+  
+</script>
+
+
+<center>
+	
+	<form method="post">
+		<table class="table"  style="width: 700px;height: 300PX;">
+
+	
+			<tr>
+				<th>Room Rent/Month</th>
+				<td><input type="number" id="room_rent" readonly name="room_rent" value="{{data['room_rent']}}"></td>
+			
+				<th>Mess Rent/Month</th>
+				<td><input type="number" id="mess_rent" readonly name="mess_rent" value="{{data['mess_rent']}}"></td>
+			</tr>
+			<tr>
+				<th>No of leave</th>
+				<td><input type="number" id="nol" readonly name="nol" value="{{data['attendnace']}}"></td>
+			
+				<th>No of days Present</th>
+				<td><input type="number" onchange="textChange()" id="nod" name="nod"></td>
+			</tr>
+
+			<tr>
+				<th>Payable Room Rent</th>
+				<td><input type="number" id="proom_rent" readonly name="proom_rent"></td>
+			
+				<th>Payable Mess Rent</th>
+				<td><input type="number" id="pmess_rent" readonly name="pmess_rent" ></td>
+			</tr>
+
+			<tr>
+				<th>Payable Total Amount</th>
+				<td colspan="3"><input type="text" id="amt" name="amount"></td>	
+			</tr>
+			
+			
+			<tr>
+				<td align="center" colspan="2"><input type="submit" name="submit" value="Add" class="btn btn-primary"></td>
+			</tr>
+		</table>
+	</form>
+	
+{% include 'footer.html' %}

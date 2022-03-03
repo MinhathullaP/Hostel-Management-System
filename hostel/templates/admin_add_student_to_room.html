@@ -1,0 +1,28 @@
+{% include 'admin_header.html' %}
+<center>
+	<div class="container-fluid" style="background-image: url(/static/img/h1.jpg); height: 1000px;background-repeat: no-repeat;background-size: cover;background-position: center;">
+
+
+<form action="" method="post">
+
+    <h1 style="padding-top: 200px;">Select Floor</h1>
+	<table class="table" style="width: 500px;">
+		<tr>
+			<th>Floor And Course</th>
+            <td><select name="floor_id" id=""  class="form-control" style="height: 45px !important;">
+                {% for row in data['floor'] %}
+                <option value="{{ row['floor_id'] }}">{{ row['floor_name'] }} : {{ row['floor_type'] }}</option>
+                {% endfor %}
+            </select></td>
+		</tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" class="btn btn-success " name="next" value="NEXT" id=""></td>
+        </tr>
+	</table>
+
+</form>
+
+</div>
+
+
+{% include 'footer.html' %}
